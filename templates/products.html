@@ -71,7 +71,7 @@
 
                     <!-- Cart Icon -->
                 <li class="nav-item ms-lg-3">
-                    <a href="#" class="cart-icon">
+                    <a href="{% url 'view-cart' %}" class="cart-icon">
                         <i class="bi bi-cart3"></i>
                         <span class="cart-badge">
                             100
@@ -156,9 +156,11 @@
                             </p>
                             <div class="product-bottom">
                                 <h4>₹{{i.cake_price}}</h4>
-                                <button class="cart-btn">
-                                    Add to Cart
-                                </button>
+                                <a href="{% url 'add-to-cart' i.id %}" class="btn-add-cart cart-btn">
+                                    <i class="bi bi-cart-plus">
+                                        
+                                    </i> Add to Cart
+                                </a>
                             </div>
                         </div>
                     </div>

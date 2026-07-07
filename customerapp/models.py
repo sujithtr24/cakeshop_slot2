@@ -13,3 +13,6 @@ class cart_tbl(models.Model):
         on_delete=models.CASCADE)
     cake = models.ForeignKey(cake_tbl,on_delete = models.CASCADE)
     quantity = models.PositiveIntegerField(default = 1)
+
+    def total_amount(self):
+        return self.quantity * self.cake.cake_price

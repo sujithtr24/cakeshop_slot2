@@ -8,10 +8,10 @@ def view_dashboard(request):
 
 def adminCustomers(request):
     customers = Customer_tbl.objects.all()     # SELECT * FROM users;
-    return render(request,'admin/admin-customers.html',{'users':customers})
+    return render(request,'admin/customers.html',{'users':customers})
  
 def adminProducts(request):
-    return render(request,'admin/admin-products.html')
+    return render(request,'admin/products.html')
 
 def adminAddProducts(request):
     if request.method == 'POST':
@@ -29,10 +29,10 @@ def adminAddProducts(request):
             cake_image = ci
         )
         if obj:
-            return render(request,'admin/admin-addProduct.html',{"sucess":"Cake uploaded sucessfully"})
+            return render(request,'admin/add-Product.html',{"sucess":"Cake uploaded sucessfully"})
         else:
-            return render(request,'admin/admin-addProduct.html',{"error":"cake not uploaded"})
-    return render(request,'admin/admin-addProduct.html')
+            return render(request,'admin/add-Product.html',{"error":"cake not uploaded"})
+    return render(request,'admin/add-Product.html')
 
 def adminEditCustomer(request, customer_id):
     customer = Customer_tbl.objects.get(id=customer_id)
@@ -49,7 +49,7 @@ def adminEditCustomer(request, customer_id):
         customer.save()
         
         return redirect('adminCustomers')
-    return render(request, 'admin/admin-editCustomer.html', {'customer': customer})
+    return render(request, 'admin/editCustomer.html', {'customer': customer})
 
 def adminDeleteCustomer(request, customer_id):
     customer = Customer_tbl.objects.get(id=customer_id)
